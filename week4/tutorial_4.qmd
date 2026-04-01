@@ -3,12 +3,15 @@ title: "Tutorial 4: Figures, Tables, and Cross-Referencing"
 author: "Vikash Raam"
 format: html
 editor: visual
+bibliography: references.bib
 
 execute: 
   echo: true
   warning: false
   message: false
 ---
+
+using the dataset @penguin_data
 
 ```{r}
 #| label: fig-penguins-scatter
@@ -35,3 +38,7 @@ penguins |>
   summarise(mean_mass = mean(body_mass_g)) |>
   knitr::kable()
 ```
+
+## **Task 3: Dynamic Cross-Referencing**
+
+As shown in @fig-penguins-scatter , there is a clear positive correlation between flipper length and body mass. The specific averages for each group are detailed in @tbl-penguin-summary.
