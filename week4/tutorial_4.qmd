@@ -3,6 +3,11 @@ title: "Tutorial 4: Figures, Tables, and Cross-Referencing"
 author: "Vikash Raam"
 format: html
 editor: visual
+
+execute: 
+  echo: true
+  warning: false
+  message: false
 ---
 
 ```{r}
@@ -15,4 +20,18 @@ library(palmerpenguins)
 ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
   geom_point() +
   theme_minimal()
+```
+
+## Task 2 : creating professional tables
+
+```{r}
+#| label: tbl-penguin-summary
+#| tbl-cap: "Mean body mass of penguins by species and sex."
+library(dplyr)
+
+penguins |>
+  filter(!is.na(sex)) |>
+  group_by(species, sex) |>
+  summarise(mean_mass = mean(body_mass_g)) |>
+  knitr::kable()
 ```
