@@ -1,0 +1,41 @@
+---
+title: "Workshop 5 - Quarto Cross-Referencing and .gitignore"
+format: html
+execute:
+    message: false
+    warning: false
+    echo: false
+---
+
+
+```{r}
+library(ggplot2)
+library(palmerpenguins)
+```
+
+## Data Cleaning {#sec-cleaning}
+
+See Section @sec-cleaning for details on how the data was prepared.
+
+```{r}
+#| label: fig-bill
+#| fig-cap: "Bill length vs flipper length"
+ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point()
+```
+
+Figure @fig-bill shows the relationship between flipper length and bill length.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics of the penguins dataset"
+knitr::kable(summary(penguins))
+```
+
+See Table @tbl-summary for summary statistics of the dataset.
+
+As described in Section @sec-cleaning, the dataset was cleaned before analysis.
+
+Figure @fig-bill illustrates the relationship between flipper length and bill length in the penguins dataset.
+
+Summary statistics for the dataset are provided in Table @tbl-summary.
